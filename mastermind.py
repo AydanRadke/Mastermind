@@ -8,17 +8,7 @@ def get_guess():
         if len(guess) != 4:
             print("Your guess must consist of 4 numbers.")
             continue
-
-        # Checks the number of occurences
         temp = True
-        for i in range(1, 8):
-            if guess.count(str(i)) > 1:
-                print("You can only use each number once.")
-                temp = False
-                break
-        if not temp:
-            continue
-
         # Checks if the correct number is used
         for letter in guess:
             if int(letter) < 1 or int(letter) > 7:
@@ -62,8 +52,7 @@ def create_comp_list():
     random_list = []
     while len(random_list) != 4:
         num = random.randint(1, 7)
-        if not num in random_list:
-            random_list.append(num)
+        random_list.append(num)
     random.shuffle(random_list)
     return random_list
 
